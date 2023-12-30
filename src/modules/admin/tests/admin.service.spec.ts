@@ -19,9 +19,7 @@ describe('AdminService', () => {
 
   const mockUserRepository = {
     findOne: jest.fn((criteria) => {
-      console.log(criteria, TestUserDTO);
       if (criteria && criteria.where.id === 'does-not-exist') {
-        console.log('try');
         return null;
       } else if (criteria && criteria.where.id === 'existing-id') {
         return TestUserDTO;
@@ -31,8 +29,6 @@ describe('AdminService', () => {
           email: 'validemail@yahoo.com',
         };
       }
-
-      console.log('end');
     }),
     delete: jest.fn((critetia) => {
       if (critetia.id == 'fail') {
