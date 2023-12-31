@@ -1,13 +1,29 @@
 ## Description
 
-Run the below commands.
+The app uses [Nest](https://github.com/nestjs/nest) , a popular framework for NodeJs, Express, TypeScript.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Run the below commands to start the app.
 
 ## Installation
 
 ```bash
 $ yarn install
+```
+
+## Generate and Populate the Env file.
+
+This step is crucial, as the app won't run properly without it.
+
+For Mac
+
+```bash
+$ cp .env.example .env
+```
+
+For Windows
+
+```bash
+$ copy .env.example .env
 ```
 
 ## Running the app
