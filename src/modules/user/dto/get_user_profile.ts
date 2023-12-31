@@ -1,7 +1,7 @@
 import { IsDefined, IsEmail } from 'class-validator';
 
 export class GetUserProfileDTO {
-  @IsDefined()
+  @IsDefined({ message: 'Email must be defined' })
   @IsEmail()
   email: string;
 

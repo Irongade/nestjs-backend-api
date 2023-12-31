@@ -47,7 +47,7 @@ export class AuthService {
     const createdUser = this.userRepository.create({
       ...userDetails,
       password,
-      role: Role.USER,
+      role: !!userDetails?.role ? userDetails.role : Role.USER,
       id,
     });
 

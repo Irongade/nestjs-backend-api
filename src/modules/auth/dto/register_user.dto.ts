@@ -1,4 +1,5 @@
-import { IsDefined, IsEmail } from 'class-validator';
+import { IsDefined, IsEmail, IsOptional } from 'class-validator';
+import { Role } from 'src/common/enums';
 
 export class RegisterUserDTO {
   @IsDefined({ message: 'Name must be defined' })
@@ -7,6 +8,9 @@ export class RegisterUserDTO {
   @IsDefined({ message: 'Email must be defined' })
   @IsEmail()
   email: string;
+
+  @IsOptional()
+  role: Role;
 
   @IsDefined({ message: 'Password must be defined' })
   password: string;

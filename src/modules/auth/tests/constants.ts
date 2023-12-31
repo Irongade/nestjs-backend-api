@@ -1,7 +1,10 @@
+import { Role } from 'src/common/enums';
+
 export const TestRegisterDTO = {
   name: 'Third User',
   email: 'third@gmail.com',
   password: 'Text123',
+  role: Role.USER,
   confirm_password: 'Text123',
 };
 
@@ -9,6 +12,7 @@ export const TestFailingRegisterDTO = {
   name: 'Third User',
   email: 'exists',
   password: 'Text123',
+  role: Role.USER,
   confirm_password: 'Text123',
 };
 
