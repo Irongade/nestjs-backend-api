@@ -10,7 +10,9 @@ Run the below commands to start the app.
 $ yarn install
 ```
 
-## Generate Env file
+## Generate and Populate the Env file.
+
+This step is crucial, as the app won't run properly without it.
 
 For Mac
 
