@@ -81,19 +81,11 @@ describe('UserController', () => {
     expect(
       await controller.updateUser(updatedUserId, updatedUserPayload),
     ).toEqual(updatedUserResponse);
-
-    // expect(mockUserService.fetchUser).toHaveBeenCalledWith(
-    //   unauthenticatedUser.email,
-    // );
   });
 
   it('updating user fails due to incorrect id', async () => {
     expect(
       await controller.updateUser('incorrectId', updatedUserPayload),
     ).toEqual(NotFoundErr);
-
-    // expect(mockUserService.fetchUser).toHaveBeenCalledWith(
-    //   unauthenticatedUser.email,
-    // );
   });
 });

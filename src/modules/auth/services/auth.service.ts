@@ -26,8 +26,16 @@ export class AuthService {
       where: { email: userDetails.email },
     });
 
+    // if user does not exist, throw error
     if (doesUserExist) {
       throw new ForbiddenException('User with this email already exists');
+    }
+
+    // if password and confirm password dont match, throw error
+    if (userDetails.password !== userDetails.confirm_password) {
+      throw new ForbiddenException(
+        'Password and Confirm Password must be identical',
+      );
     }
 
     // generate password and user ID

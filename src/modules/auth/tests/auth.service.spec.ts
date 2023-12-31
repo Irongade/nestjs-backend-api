@@ -60,17 +60,28 @@ describe('UserService', () => {
     expect(service).toBeDefined();
   });
 
-  it('fetch user service works', async () => {
+  it('register user service works', async () => {
     expect(await service.register(TestRegisterDTO)).toEqual(
       TestRegisterUserResponse,
     );
   });
 
-  it('geting user with incorrect email should throw error', async () => {
+  it('registering user with existing email should throw error', async () => {
     await expect(
       service.register({ ...TestRegisterDTO, email: 'doesNotExist' }),
     ).rejects.toEqual(
       new ForbiddenException('User with this email already exists'),
+    );
+  });
+
+  it('registering user with different password and confirm password should throw error', async () => {
+    await expect(
+      service.register({
+        ...TestRegisterDTO,
+        confirm_password: 'wrong_password',
+      }),
+    ).rejects.toEqual(
+      new ForbiddenException('Password and Confirm Password must be identical'),
     );
   });
 });
