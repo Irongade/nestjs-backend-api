@@ -1,8 +1,8 @@
 ## Description
 
-Run the below commands.
+The app uses [Nest](https://github.com/nestjs/nest) , a popular framework for NodeJs, Express, TypeScript.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Run the below commands to start the app.
 
 ## Installation
 
