@@ -1,12 +1,13 @@
 import {
   ForbiddenException,
+  HttpException,
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../../user/entities/user.entity';
 import { Repository } from 'typeorm';
-import { ErrorData, ResponseData } from 'src/common/types/error.type';
+import { ResponseWithoutData } from 'src/common/types/response.type';
 import { Role } from 'src/common/enums';
 
 @Injectable()
@@ -18,7 +19,7 @@ export class AdminService {
   async deleteUser(
     id: string,
     authenticatedUser,
-  ): Promise<ResponseData<any> | ErrorData> {
+  ): Promise<ResponseWithoutData | HttpException> {
     // investigate
     // only users can be deleted
     const user = await this.userRepository.findOne({

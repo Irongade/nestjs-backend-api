@@ -1,13 +1,10 @@
-import { HttpStatus } from '@nestjs/common';
-
 export type ResponseData<T> = {
   success: boolean;
   message: string;
-  data: T;
+  data: T | T[];
 };
 
-export type ErrorData = {
+export type ResponseWithoutData = {
   success: boolean;
   message: string;
-  code?: HttpStatus;
 };

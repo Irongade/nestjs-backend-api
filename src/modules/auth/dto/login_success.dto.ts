@@ -1,5 +1,5 @@
 import { IsDefined } from 'class-validator';
-import { UserGetDTO } from 'src/modules/user/dtos/user_get.dto';
+import { UserGetDTO } from 'src/modules/user/dto/user_get.dto';
 
 export class LoginSuccessDTO {
   @IsDefined()

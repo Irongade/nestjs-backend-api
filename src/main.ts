@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import * as cookieParser from 'cookie-parser';
+import helmet from 'helmet';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
@@ -13,12 +14,16 @@ async function bootstrap() {
   );
   app.setGlobalPrefix('api/v1');
   app.use(cookieParser());
-  // introduce cors
+  // introduce cors protection
   app.enableCors({
     origin: '*', // this is not ideal, just putting this here for dev purposes, this should be replaced with a valid origin
     credentials: true,
   });
 
+  // add helmet
+  app.use(helmet());
+
+  // swagger documentation
   const config = new DocumentBuilder()
     .setTitle('LeoVegas')
     .setDescription('The leoVegas API description')

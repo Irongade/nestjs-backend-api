@@ -9,9 +9,10 @@ import { AuthModule } from './modules/auth/auth.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './modules/auth/jwt.strategy';
-import { APP_FILTER } from '@nestjs/core';
+import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { HttpErrorFilter } from './common/exceptions/http-exception.filter';
 import { LoggerMiddleware } from './common/middlewares/logger.middleware';
+import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 
 @Module({
   imports: [
@@ -20,6 +21,12 @@ import { LoggerMiddleware } from './common/middlewares/logger.middleware';
       envFilePath: '.env',
       isGlobal: true,
     }),
+    ThrottlerModule.forRoot([
+      {
+        ttl: 60000,
+        limit: 10,
+      },
+    ]),
     JwtModule.register({
       secret: process.env.APP_SECRET,
       signOptions: {
@@ -43,12 +50,17 @@ import { LoggerMiddleware } from './common/middlewares/logger.middleware';
   ],
   controllers: [AppController],
   providers: [
-    AppService,
-    JwtStrategy,
+    // global http error handler
     {
       provide: APP_FILTER,
       useClass: HttpErrorFilter,
     },
+    {
+      provide: APP_GUARD,
+      useClass: ThrottlerGuard,
+    },
+    AppService,
+    JwtStrategy,
   ],
 })
 export class AppModule {

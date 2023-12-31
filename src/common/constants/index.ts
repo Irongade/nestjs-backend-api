@@ -1,0 +1,1 @@
+export const PASSWORD_HASHING_SALT_OR_ROUNDS = 10;
