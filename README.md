@@ -1,5 +1,7 @@
 ## Description
 
+Run the below commands.
+
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
@@ -27,13 +29,10 @@ $ yarn run start:prod
 # unit tests
 $ yarn run test
 
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
 ```
 
 ## Swagger
 
 Swagger Link: http://localhost:3000/api/v1/swagger-docs#/
+
+
