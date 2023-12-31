@@ -10,6 +10,20 @@ Run the below commands.
 $ yarn install
 ```
 
+## Generate Env file
+
+For Mac
+
+```bash
+$ cp .env.example .env
+```
+
+For Windows
+
+```bash
+$ copy .env.example .env
+```
+
 ## Running the app
 
 ```bash
