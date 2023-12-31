@@ -51,4 +51,23 @@ $ yarn run test
 
 Swagger Link: http://localhost:3000/api/v1/swagger-docs#/
 
+## Register User
+
+You can specify the role as either "ADMIN" or "USER" in the register request to make an admin or regular user. This is not ideal, but did it like this intentionally to make it easy to test the application's features.
+if no role value is specified, we just create a regular user.
+
+Payload example for Registeration.
+```bash
+{
+    "name": "Test User",
+    "email": "usertester@gmail.com",
+    "password": "Text123",
+    "role": "ADMIN"
+    "confirm_password": "Text123"
+}
+
+```
+
+Other request payload can be found in the Swagger.
+
 
