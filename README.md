@@ -2,6 +2,8 @@
 
 The app uses [Nest](https://github.com/nestjs/nest) , a popular framework for NodeJs, Express, TypeScript.
 
+The database used is MySQL.
+
 Run the below commands to start the app.
 
 ## Installation
@@ -51,7 +53,7 @@ $ yarn run test
 
 Swagger Link: http://localhost:3000/api/v1/swagger-docs#/
 
-The swagger link has all the APIs, as well as the payloads and params.
+The swagger link has all the APIs, as well as the payloads and params details.
 
 ## Register User as Admin
 
