@@ -12,7 +12,7 @@ $ yarn install
 
 ## Generate and Populate the Env file.
 
-This step is crucial, as the app won't run properly without it.
+This step is crucial, as the app won't run properly without it. Please provide your MySQL details.
 
 For Mac
 
@@ -51,9 +51,11 @@ $ yarn run test
 
 Swagger Link: http://localhost:3000/api/v1/swagger-docs#/
 
-## Register User
+The swagger link has all the APIs, as well as the payloads and params.
 
-You can specify the role as either "ADMIN" or "USER" in the register request to make an admin or regular user. This is not ideal, but did it like this intentionally to make it easy to test the application's features.
+## Register User as Admin
+
+You can specify the role as either "ADMIN" or "USER" in the register request to make an admin or regular user. This is not ideal, but this was done intentionally to make it easy to test the application's features as an Admin.
 if no role value is specified, we just create a regular user.
 
 Payload example for Registeration.
@@ -67,7 +69,5 @@ Payload example for Registeration.
 }
 
 ```
-
-Other request payload can be found in the Swagger.
 
 
